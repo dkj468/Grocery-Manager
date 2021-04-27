@@ -1,0 +1,28 @@
+.current-list-container {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+mat-card {
+  padding: 10px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.example-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.example-container mat-form-field {
+  margin-right: 1rem;
+}
+
+.example-container mat-raised-button {
+  height: 70%;
+}

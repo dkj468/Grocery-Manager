@@ -1,0 +1,42 @@
+<p>Add Items into List so that you don't miss them</p>
+<mat-card class="current-list">
+  <form
+    class="example-container"
+    (submit)="onCreateItem(itemForm)"
+    #itemForm="ngForm"
+  >
+    <mat-form-field>
+      <mat-label>Item Name</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Ex. Brown Rice"
+        name="itemName"
+        value=""
+        ngModel
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <input
+        matInput
+        placeholder="Ex. 1 KG"
+        type="number"
+        name="itemQuantity"
+        ngModel
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Item Unit</mat-label>
+      <select matNativeControl name="itemUnit" required ngModel>
+        <option value="KG">Kg</option>
+        <option value="ltr">Liter</option>
+        <option value="pkt">Packet</option>
+      </select>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Add Item</button>
+  </form>
+</mat-card>

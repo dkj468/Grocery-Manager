@@ -1,0 +1,33 @@
+mat-card {
+  padding: 10px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+mat-card-title {
+  background-color: #3f51b5;
+  padding: 1rem;
+  color: white;
+}
+
+mat-card-actions {
+  padding: 1rem;
+}
+
+:host ::ng-deep .mat-list-base mat-list-item .mat-list-item-content {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-title p {
+    font-size: 1rem;
+  }
+}
