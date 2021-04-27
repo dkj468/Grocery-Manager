@@ -17,11 +17,7 @@ export class ItemListComponent implements OnInit, OnDestroy{
 
   // items: Item[] = [{
   //   id:1, itemName:'Rice', itemQuantity: 2, itemUnit: 'Kg'}];
-  items: Item[] = [{
-    id:1, itemName:'Rice', itemQuantity:2, itemUnit:'Kg', itemAmount: 230
-  },{
-    id:2, itemName:'Oil', itemQuantity:2, itemUnit:'ltr', itemAmount: 240
-  }];
+  items: Item[] = [];
   constructor(public itemService: ItemService) {
 
   }
