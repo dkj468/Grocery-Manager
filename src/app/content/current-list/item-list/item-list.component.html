@@ -1,36 +1,41 @@
 <mat-card *ngIf="items.length > 0">
-  <mat-card-title>
+  <mat-card-title> Items for next order </mat-card-title>
+  <mat-card-subtitle>
     <div class="card-title">
-      <p>Items for next order</p>
       <p>Amount - {{ totalAmount }}</p>
       <p>April - 2021</p>
     </div>
-  </mat-card-title>
+  </mat-card-subtitle>
   <mat-nav-list *ngFor="let item of items">
     <mat-list-item>
-      <a matLine href="#"
-        >{{ item.itemName }} - {{ item.itemQuantity }} {{ item.itemUnit }}</a
-      >
-      <mat-form-field>
-        <mat-label>Amount</mat-label>
-        <input
-          matInput
-          type="number"
-          [ngModel]="itemAmount"
-          (ngModelChange)="onAmountChange($event, item.id)"
-          name="itemName"
-          value="{{ item.itemAmount }}"
-          #inputAmount
-        />
-      </mat-form-field>
-      <button mat-icon-button (click)="onDelete(item.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <!-- <div class="item-detail">
+        <h3>{{ item.itemName }}</h3>
+        <h4>{{ item.itemQuantity }} {{ item.itemUnit }}</h4>
+        <button mat-icon-button (click)="onDelete(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div> -->
+      <div class="item-detail">
+        <h3>{{ item.itemName }}</h3>
+        <h4>{{ item.itemQuantity }} {{ item.itemUnit }}</h4>
+      </div>
+      <div class="item-amount">
+        <h4>Amount</h4>
+        <p class="amount">{{ item.itemAmount }} &#8377;</p>
+      </div>
+      <div class="action-btn">
+        <button mat-icon-button (click)="onDelete(item.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onDelete(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-list-item>
   </mat-nav-list>
   <mat-divider></mat-divider>
   <mat-card-actions>
-    <mat-checkbox class="example-margin">Mark Complete</mat-checkbox>
+    <mat-checkbox (change)="onMarkComplete($event)">Mark Complete</mat-checkbox>
   </mat-card-actions>
 </mat-card>
 

@@ -26,8 +26,48 @@ mat-card-actions {
   justify-content: space-between;
 }
 
+.item-detail {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.item-detail h3 {
+  margin-right: 1rem;
+}
+
+.item-amount {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item-amount p {
+  margin-left: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
 @media only screen and (max-width: 600px) {
   .card-title p {
     font-size: 1rem;
+  }
+  :host ::ng-deep .mat-list-base mat-list-item .mat-list-item-content {
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .item-detail {
+    font-size: 0.9rem;
+  }
+
+  .item-amount {
+    font-size: 0.9rem;
   }
 }

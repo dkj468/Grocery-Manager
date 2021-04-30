@@ -37,6 +37,17 @@
         <option value="pkt">Packet</option>
       </select>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        placeholder="Ex. 200"
+        type="number"
+        name="itemAmount"
+        ngModel
+      />
+    </mat-form-field>
+
     <button mat-raised-button color="primary">Add Item</button>
   </form>
 </mat-card>

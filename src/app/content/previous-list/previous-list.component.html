@@ -1,1 +1,23 @@
-<h1>This is previous list</h1>
+<h1>Summary of your previous orders</h1>
+<div class="previous-list">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let entry of previousItems">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{ entry.date.toLocaleDateString() }}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>Amount - {{ entry.totalAmount }} &#8377;</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-nav-list *ngFor="let item of entry.items">
+        <mat-list-item>
+          <p>
+            {{ item.itemName }} - {{ item.itemQuantity }} {{ item.itemUnit }} (
+            {{ item.itemAmount }} &#8377; )
+          </p>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
