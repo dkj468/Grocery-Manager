@@ -19,7 +19,8 @@ export class ItemService {
     itemName: string,
     itemQuantity: number,
     itemUnit: string,
-    itemAmount: number
+    itemAmount: number,
+    bNotifyUpdate: boolean = true
   ) {
     let id = 1;
     if (this.items.length > 0) {
@@ -33,7 +34,9 @@ export class ItemService {
       itemAmount: itemAmount,
     };
     this.items.push(item);
-    this.itemsUpdate.next([...this.items]);
+    if (bNotifyUpdate) {
+      this.itemsUpdate.next([...this.items]);
+    }
   }
 
   deleteItem(itemID: number) {

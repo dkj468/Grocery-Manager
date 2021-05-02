@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Item, previousItem } from "../content/item.model";
+import { ItemService } from "./item.service";
 
 @Injectable({ providedIn: "root" })
 export class PreviousItemService {
   private previousList: previousItem[] = [];
   previousListUpdate = new Subject<previousItem[]>();
+
+  constructor(public itemService: ItemService) {}
 
   getPreviousListUpdateListener() {
     return this.previousListUpdate.asObservable();
@@ -23,5 +26,20 @@ export class PreviousItemService {
 
   get() {
     return [...this.previousList];
+  }
+
+  copyItemToCurrentList(thisListId: number) {
+    const thisEntry = this.previousList.find((el) => el.id === thisListId);
+    if (thisEntry) {
+      thisEntry.items.forEach((item) => {
+        this.itemService.addItem(
+          item.itemName,
+          item.itemQuantity,
+          item.itemUnit,
+          item.itemAmount,
+          false
+        );
+      });
+    }
   }
 }
