@@ -2,6 +2,13 @@
   margin: 1rem;
 }
 
+mat-expansion-panel-header {
+  justify-content: center;
+}
 .mat-expansion-panel-header-title {
   text-align: center;
+}
+
+.previous-list-action {
+  margin-right: 1rem;
 }
