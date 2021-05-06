@@ -16,18 +16,18 @@
         </button>
       </div> -->
       <div class="item-detail">
-        <h3>{{ item.itemName }}</h3>
-        <h4>{{ item.itemQuantity }} {{ item.itemUnit }}</h4>
+        <h3>{{ item.name }}</h3>
+        <h4>{{ item.quantity }} {{ item.unit }}</h4>
       </div>
       <div class="item-amount">
         <h4>Amount</h4>
-        <p class="amount">{{ item.itemAmount }} &#8377;</p>
+        <p class="amount">{{ item.amount }} &#8377;</p>
       </div>
       <div class="action-btn">
-        <button mat-icon-button (click)="onDelete(item.id)">
+        <button mat-icon-button>
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button (click)="onDelete(item.id)">
+        <button mat-icon-button (click)="onDelete(item._id)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

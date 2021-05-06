@@ -31,12 +31,12 @@ export class PreviousItemService {
   copyItemToCurrentList(thisListId: number) {
     const thisEntry = this.previousList.find((el) => el.id === thisListId);
     if (thisEntry) {
-      thisEntry.items.forEach((item) => {
+      thisEntry.items.forEach((item: Item) => {
         this.itemService.addItem(
-          item.itemName,
-          item.itemQuantity,
-          item.itemUnit,
-          item.itemAmount,
+          item.name,
+          item.quantity,
+          item.unit,
+          item.amount,
           false
         );
       });

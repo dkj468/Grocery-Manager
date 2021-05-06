@@ -13,6 +13,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { AppSideNavComponent } from "./side-nav/side-nav.component";
@@ -49,6 +50,7 @@ import { CreateItemComponent } from "./content/current-list/create-item/create-i
     MatTableModule,
     MatCheckboxModule,
     MatExpansionModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

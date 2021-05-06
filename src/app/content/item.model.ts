@@ -1,9 +1,11 @@
+import { ObjectId } from "mongoose";
+
 export interface Item {
-  id: number;
-  itemName: string;
-  itemQuantity: number;
-  itemAmount: number;
-  itemUnit: string;
+  _id: ObjectId;
+  name: string;
+  quantity: number;
+  unit: string;
+  amount: number;
 }
 
 export interface previousItem {
