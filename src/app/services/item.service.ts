@@ -39,7 +39,6 @@ export class ItemService {
         amount: itemAmount,
       })
       .subscribe((response: any) => {
-        console.log(response.data);
         this.items.push(response.data);
         if (bNotifyUpdate) {
           this.itemsUpdate.next([...this.items]);

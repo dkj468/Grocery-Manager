@@ -9,8 +9,8 @@ export interface Item {
 }
 
 export interface previousItem {
-  id: number;
+  _id: ObjectId;
   date: Date;
   items: Item[];
-  totalAmount: number;
+  amount: number;
 }

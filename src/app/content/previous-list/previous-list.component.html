@@ -4,13 +4,13 @@
     <mat-expansion-panel *ngFor="let entry of previousItems">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <p>{{ entry.date.toLocaleDateString() }}</p>
+          <p>{{ entry.date | dateFormat }}</p>
         </mat-panel-title>
         <mat-panel-description>
-          <p>Amount - {{ entry.totalAmount }} &#8377;</p>
+          <p>Amount - {{ entry.amount }} &#8377;</p>
         </mat-panel-description>
         <div class="previous-list-action">
-          <button mat-icon-button (click)="onCopy(entry.id)">
+          <button mat-icon-button (click)="onCopy(entry._id)">
             <mat-icon>file_copy</mat-icon>
           </button>
         </div>

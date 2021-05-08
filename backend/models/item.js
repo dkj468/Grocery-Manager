@@ -5,16 +5,20 @@ const itemSchema = new mongoose.Schema({
     type: String,
   },
   quantity:{
-    type: Number
+    type: Number,
   },
   unit:{
-    type: String
+    type: String,
   },
   amount:{
-    type: Number
+    type: Number,
+  },
+  isActive:{
+    type: Boolean,
+    default: true,
   }
 },{
-  versionKey: false
+  versionKey: false,
 }
 );
 

@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ObjectId } from "mongoose";
+import { Subscription } from "rxjs";
 import { PreviousItemService } from "src/app/services/previousItems.service";
 import { previousItem } from "../item.model";
 
@@ -7,7 +9,7 @@ import { previousItem } from "../item.model";
   templateUrl: "./previous-list.component.html",
   styleUrls: ["./previous-list.component.css"],
 })
-export class PreviousListComponent implements OnInit {
+export class PreviousListComponent implements OnInit, OnDestroy {
   // previousItems: previousItem[] = [
   //   {
   //     id: 1,
@@ -25,14 +27,23 @@ export class PreviousListComponent implements OnInit {
   //   },
   // ];
   previousItems: previousItem[] = [];
-  //previousItemSub: Subscription;
+  private previousItemSub: Subscription;
+
   constructor(public previousItemService: PreviousItemService) {}
 
   ngOnInit() {
-    this.previousItems = this.previousItemService.get();
+    this.previousItemSub = this.previousItemService
+      .get()
+      .subscribe((response) => {
+        this.previousItems = response.data;
+      });
   }
 
-  onCopy(previousListId: number) {
+  ngOnDestroy() {
+    this.previousItemSub.unsubscribe();
+  }
+
+  onCopy(previousListId: ObjectId) {
     if (confirm(`Do you want to copy this list's item into current list ?`)) {
       this.previousItemService.copyItemToCurrentList(previousListId);
     }

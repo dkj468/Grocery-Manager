@@ -23,6 +23,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PreviousListComponent } from "./content/previous-list/previous-list.component";
 import { ItemListComponent } from "./content/current-list/item-list/item-list.component";
 import { CreateItemComponent } from "./content/current-list/create-item/create-item.component";
+import { DateFormatPipe } from "./pipe/dateFormat.pipe";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CreateItemComponent } from "./content/current-list/create-item/create-i
     PreviousListComponent,
     ItemListComponent,
     CreateItemComponent,
+    DateFormatPipe,
   ],
   imports: [
     BrowserModule,

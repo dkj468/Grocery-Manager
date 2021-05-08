@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   const newItem = await Item.create(req.body);
-  console.log(newItem);
   res.status(201).json({
     status:'success',
     data: newItem
@@ -14,7 +13,7 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  const items = await Item.find();
+  const items = await Item.find({isActive: true});
   res.status(201).json({
     status:'success',
     data: items

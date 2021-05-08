@@ -1,6 +1,7 @@
 const express = require('express');
 
 const itemRouter = require('./router/itemRoute');
+const previousItemRouter = require('./router/previousItemRouter');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/v1/item', itemRouter);
+app.use('/api/v1/previousItem', previousItemRouter);
 
 module.exports = app;
 
