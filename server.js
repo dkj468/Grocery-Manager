@@ -2,13 +2,21 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = require('./backend/app');
 
-dotenv.config({path:'./config.env'});
+dotenv.config({ path: './config.env' });
 
-const conString = process.env.DATABASE.replace('<PASSWORD>', process.env.DB_PASSWORD);
+process.on('uncaughtException', (err) => {
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
+const conString = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DB_PASSWORD
+);
 
 mongoose.connect(conString, {
-  useUnifiedTopology:true,
-  useNewUrlParser:true
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
 });
 
 mongoose.connection
@@ -16,9 +24,17 @@ mongoose.connection
     console.log('mongoose connection open');
   })
   .on('error', (err) => {
-    console.log(`Error connecting to database : ${err}`)
+    console.log(`Error connecting to database : ${err}`);
   });
 
-app.listen(process.env.PORT || 3000, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Server running on port ${process.env.PORT || 3000}`);
-})
+});
+
+// unhandled rejection
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});

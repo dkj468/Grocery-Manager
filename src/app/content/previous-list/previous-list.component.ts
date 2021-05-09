@@ -1,13 +1,13 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ObjectId } from "mongoose";
-import { Subscription } from "rxjs";
-import { PreviousItemService } from "src/app/services/previousItems.service";
-import { previousItem } from "../item.model";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ObjectId } from 'mongoose';
+import { Subscription } from 'rxjs';
+import { PreviousItemService } from 'src/app/services/previousItems.service';
+import { previousItem } from '../item.model';
 
 @Component({
-  selector: "app-previous-list",
-  templateUrl: "./previous-list.component.html",
-  styleUrls: ["./previous-list.component.css"],
+  selector: 'app-previous-list',
+  templateUrl: './previous-list.component.html',
+  styleUrls: ['./previous-list.component.css'],
 })
 export class PreviousListComponent implements OnInit, OnDestroy {
   // previousItems: previousItem[] = [

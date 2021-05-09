@@ -13,6 +13,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatTooltipModule } from "@angular/material/tooltip";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
@@ -52,6 +53,7 @@ import { DateFormatPipe } from "./pipe/dateFormat.pipe";
     MatTableModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatTooltipModule,
     HttpClientModule,
   ],
   providers: [],

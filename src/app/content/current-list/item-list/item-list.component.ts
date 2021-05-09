@@ -51,6 +51,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
     if (this.items.length <= 0) {
       this.itemGet = this.itemService.getItems().subscribe((response: any) => {
         this.items = response.data;
+        this.totalAmount = this.itemService.getTotalAmount();
       });
     }
   }

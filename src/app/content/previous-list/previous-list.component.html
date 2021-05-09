@@ -10,7 +10,11 @@
           <p>Amount - {{ entry.amount }} &#8377;</p>
         </mat-panel-description>
         <div class="previous-list-action">
-          <button mat-icon-button (click)="onCopy(entry._id)">
+          <button
+            mat-icon-button
+            matTooltip="Copy items to current list"
+            (click)="onCopy(entry._id)"
+          >
             <mat-icon>file_copy</mat-icon>
           </button>
         </div>
