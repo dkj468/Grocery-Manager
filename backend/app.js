@@ -2,6 +2,7 @@ const express = require('express');
 
 const itemRouter = require('./router/itemRoute');
 const previousItemRouter = require('./router/previousItemRouter');
+const userRouter = require('./router/userRouter');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controller/errorController');
 
@@ -24,6 +25,7 @@ app.get('/', (req, res, next) => {
 
 app.use('/api/v1/item', itemRouter);
 app.use('/api/v1/previousItem', previousItemRouter);
+app.use('/api/v1/user', userRouter);
 
 // Unhandled routes
 app.all('*', (req, res, next) => {

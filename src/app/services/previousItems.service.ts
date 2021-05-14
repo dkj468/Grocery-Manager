@@ -1,12 +1,12 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { ObjectId } from "mongoose";
-import { Subject } from "rxjs";
-import { tap } from "rxjs/operators";
-import { Item, previousItem } from "../content/item.model";
-import { ItemService } from "./item.service";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ObjectId } from 'mongoose';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Item, previousItem } from '../content/item.model';
+import { ItemService } from './item.service';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class PreviousItemService {
   private previousList: previousItem[] = [];
   previousListUpdate = new Subject<previousItem[]>();
@@ -19,7 +19,7 @@ export class PreviousItemService {
 
   add(date: Date, items: Item[], totalAmount: number) {
     this.httpClient
-      .post("http://127.0.0.1:3000/api/v1/previousItem", {
+      .post('http://127.0.0.1:3000/api/v1/previousItem', {
         date,
         amount: totalAmount,
         items,
@@ -33,7 +33,7 @@ export class PreviousItemService {
 
   get() {
     return this.httpClient
-      .get("http://127.0.0.1:3000/api/v1/previousItem")
+      .get('http://127.0.0.1:3000/api/v1/previousItem')
       .pipe(
         tap((response: any) => {
           this.previousList = response.data;
