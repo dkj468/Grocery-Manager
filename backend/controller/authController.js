@@ -20,12 +20,15 @@ exports.signUp = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm
   });
 
+  console.log(newUser);
   newUser.password = undefined;
   const token = await getToken(newUser._id);
   res.status(201).json({
     status:'success',
     token,
-    data: newUser
+    data: {
+      user: newUser
+    }
   });
 });
 
@@ -47,14 +50,19 @@ exports.login = catchAsync(async (req, res, next) => {
   // 3. create a new token
   const token = await getToken(user._id);
   // 4. send the response
+  user.password = undefined;
   res.status(200).json({
     status:'success',
-    token
+    token,
+    data:{
+      user
+    }
   })
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
   // 1. check if req contains the token in header
+  console.log(req.headers);
   if(!(req.headers.authorization && req.headers.authorization.startsWith('Bearer'))) {
     return next(new AppError('token is not available in request header', 401));
   };

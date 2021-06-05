@@ -1,0 +1,52 @@
+<mat-card class="card-container">
+  <mat-card-subtitle>Grocery Manager</mat-card-subtitle>
+  <mat-card-title>Create a new account</mat-card-title>
+  <form #regForm="ngForm" (ngSubmit)="register(regForm)">
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        type="text"
+        placeholder="name"
+        name="name"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        name="email"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <div class="action">
+      <button mat-raised-button color="primary">Sign In</button>
+    </div>
+  </form>
+  <div class="sign-in">
+    <span>Already with us?</span><a [routerLink]="['/login']"> Log In</a>
+  </div>
+</mat-card>

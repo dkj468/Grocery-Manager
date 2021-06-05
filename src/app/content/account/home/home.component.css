@@ -1,0 +1,32 @@
+.card-container {
+  /*  not needed styles to reflect it */
+  padding: 10px;
+
+  /* needed styles below */
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  flex-direction: column;
+  width: 400px;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  display: block;
+}
+
+mat-card-subtitle {
+  color: cadetblue;
+  font-weight: 700;
+  font-size: large;
+}
+
+.sign-in {
+  margin-top: 1rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+}

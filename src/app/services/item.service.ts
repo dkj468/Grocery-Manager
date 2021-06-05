@@ -1,11 +1,11 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { ObjectId } from "mongoose";
-import { Subject } from "rxjs";
-import { tap } from "rxjs/operators";
-import { Item } from "../content/item.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ObjectId } from 'mongoose';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Item } from '../models/item.model';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class ItemService {
   private items: Item[] = [];
   private itemsUpdate = new Subject<Item[]>();
@@ -13,7 +13,7 @@ export class ItemService {
   constructor(public httpClient: HttpClient) {}
 
   getItems() {
-    return this.httpClient.get("http://127.0.0.1:3000/api/v1/item").pipe(
+    return this.httpClient.get('http://127.0.0.1:3000/api/v1/item').pipe(
       tap((response: any) => {
         this.items = response.data;
       })
@@ -32,7 +32,7 @@ export class ItemService {
     bNotifyUpdate: boolean = true
   ) {
     this.httpClient
-      .post("http://127.0.0.1:3000/api/v1/item", {
+      .post('http://127.0.0.1:3000/api/v1/item', {
         name: itemName,
         quantity: itemQuantity,
         unit: itemUnit,

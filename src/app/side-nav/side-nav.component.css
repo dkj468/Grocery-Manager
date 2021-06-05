@@ -17,6 +17,12 @@
 h1.example-app-name {
   margin-left: 8px;
 }
+img {
+  border-radius: 50%;
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+}
 
 .example-sidenav-container {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
@@ -32,4 +38,8 @@ h1.example-app-name {
 
 mat-sidenav-content {
   text-align: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

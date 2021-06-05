@@ -4,6 +4,21 @@
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name">Grocery Manager</h1>
+    <span class="example-spacer"></span>
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      *ngIf="authService.currentUser | async"
+    >
+      <img src="../../assets/img/default.jpg" alt="Avatar" />
+      <h3>{{ (authService.currentUser | async)?.name }}</h3>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Settings</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
   </mat-toolbar>
 
   <mat-sidenav-container
@@ -17,8 +32,8 @@
       fixedTopGap="56"
     >
       <mat-nav-list>
-        <a mat-list-item [routerLink] ="['']">Upcoming List</a>
-        <a mat-list-item [routerLink] ="['/previous-list']">Previous List</a>
+        <a mat-list-item [routerLink]="['./currentlist']">Upcoming List</a>
+        <a mat-list-item [routerLink]="['./previouslist']">Previous List</a>
       </mat-nav-list>
     </mat-sidenav>
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ObjectId } from 'mongoose';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Item, previousItem } from '../content/item.model';
+import { Item, previousItem } from '../models/item.model';
 import { ItemService } from './item.service';
 
 @Injectable({ providedIn: 'root' })

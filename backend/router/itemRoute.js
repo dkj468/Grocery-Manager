@@ -4,8 +4,8 @@ const authController =  require('../controller/authController');
 
 const router = express.Router();
 
-router.post('/', itemController.addItem);
-router.get('/', authController.protect,itemController.getAllItems);
-router.delete('/:id', itemController.deleteItemById);
+router.post('/', authController.protect, itemController.addItem);
+router.get('/', authController.protect, itemController.getAllItems);
+router.delete('/:id', authController.protect, itemController.deleteItemById);
 
 module.exports = router;

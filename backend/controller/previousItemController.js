@@ -4,7 +4,7 @@ const catchAsync = require('../utils/catchAsyncError');
 
 exports.addPreviousItem = catchAsync(async (req, res, next) => {
   // create entry for previous list
-
+  req.body.user = req.user;
   const newList = await PreviousItem.create(req.body);
   const populatedList = await PreviousItem.findById(newList._id).populate(
     'Items'
@@ -24,7 +24,7 @@ exports.addPreviousItem = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllPreviousItems = catchAsync(async (req, res, next) => {
-  const previousItems = await PreviousItem.find({}).populate({
+  const previousItems = await PreviousItem.find({user: req.user._id}).populate({
     path: 'items',
     model: 'Item',
   });

@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-content>
+    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)">
+      <h2>Create an account</h2>
+      <mat-error> The username and password were not recognized </mat-error>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="email"
+          placeholder="Email"
+          name="email"
+          required
+          ngModel
+        />
+        <mat-error> Please provide a valid email address </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          ngModel
+        />
+        <mat-error> Please provide a valid password </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+          ngModel
+        />
+        <mat-error> Please provide a valid password </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Sign Up</button>
+    </form>
+  </mat-card-content>
+</mat-card>

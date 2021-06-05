@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ObjectId } from 'mongoose';
 import { Subscription } from 'rxjs';
 import { PreviousItemService } from 'src/app/services/previousItems.service';
-import { previousItem } from '../item.model';
+import { previousItem } from '../../models/item.model';
 
 @Component({
   selector: 'app-previous-list',

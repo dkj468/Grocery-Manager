@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Item = require('./item');
 
 
 const previousItemSchema = new mongoose.Schema({
@@ -9,7 +8,11 @@ const previousItemSchema = new mongoose.Schema({
   amount:{
     type: Number
   },
-  items:[{type: mongoose.Schema.Types.ObjectId, ref:'Item'}]
+  items: [{type: mongoose.Schema.Types.ObjectId, ref:'Item'}],
+  user:{
+    type: mongoose.Schema.Types,
+    ref: 'User'
+  },
 });
 
 const PreviousItem = mongoose.model('PreviousItem', previousItemSchema);
